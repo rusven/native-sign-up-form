@@ -69,6 +69,74 @@
 			    padding: 50px 70px 50px;
 			    position: relative;
 			}
+			.form-signup h1,
+			.form-signup button {
+				margin-left: 25%;
+			}
+			input[type="text"], 
+			input[type="email"] {
+			    border-radius: 3px;
+			    background-color: white;
+			    border: 1px solid #CCCCCC;
+			    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+			    color: rgba(0, 0, 0, 0.75);
+			    display: block;
+			    font-family: inherit;
+			    font-size: 0.875em;
+			    height: 2.3125em;
+			    margin: 0 0 1em;
+			    padding: 0.5em;
+			    transition: all 0.15s linear 0s;
+			    width: 100%;
+			    font-size: 16px;
+			    height: auto;
+			    margin-bottom: 15px;
+			    padding: 7px 9px;
+			}
+			label {
+			    color: #4D4D4D;
+			    cursor: pointer;
+			    display: block;
+			    font-size: 14px;
+			    font-weight: 500;
+			    margin-bottom: 0.1875em;
+			}
+			label.inline {
+			    margin: 0 0 1em;
+			    padding: 0.625em 0;
+			}
+			button, .button {
+			    background-color: #2BA6CB;
+			    border-color: #2284A1;
+			    border-style: solid;
+			    border-width: 1px;
+			    color: white;
+			    cursor: pointer;
+			    display: inline-block;
+			    font-family: inherit;
+			    font-size: 16px;
+			    font-weight: bold;
+			    line-height: 1;
+			    margin: 0 0 1.25em;
+			    padding: 0.75em 1.5em 0.8125em;
+			    position: relative;
+			    text-align: center;
+			    text-decoration: none;
+			}
+			.button.radius {
+			    border-radius: 3px;
+			}
+			input.button, button.button {
+			    padding-bottom: 0.75em;
+			    padding-top: 0.8125em;
+			}
+			.button {
+			    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+			    transition: background-color 300ms ease-out 0s;
+			}
+			button:hover, button:focus, .button:hover, .button:focus {
+			    background-color: #2284A1;
+			}
 		</style>
     </head>
 	<body>
@@ -78,7 +146,7 @@
 					<h1>Sign up</h1>
 					<div class="row collapse">
 						<div class="large-3 columns">
-							<label>Your Name</label>
+							<label class="inline">Your Name</label>
 						</div>
 						<div class="large-9 columns">
 							<input type="text" placeholder="Name">
@@ -86,13 +154,15 @@
 					</div>
 					<div class="row collapse">
 						<div class="large-3 columns">
-							<label>Your E-mail</label>
+							<label class="inline">Your E-mail</label>
 						</div>
 						<div class="large-9 columns">
 							<input type="text" placeholder="Email address">
 						</div>
 					</div>
-					<button type="submit">Sign up</button>
+					<div class="row collapse">
+						<button type="submit" class="radius button">Sign up</button>
+					</div>
 				</form>
 			</section>
 		</div>
