@@ -146,18 +146,18 @@
 					<h1>Sign up</h1>
 					<div class="row collapse">
 						<div class="large-3 columns">
-							<label class="inline">Your Name</label>
+							<label for="name_signup" class="inline">Your Name</label>
 						</div>
 						<div class="large-9 columns">
-							<input type="text" placeholder="Name">
+							<input id="name_signup" name="name_signup" type="text" placeholder="Name">
 						</div>
 					</div>
 					<div class="row collapse">
 						<div class="large-3 columns">
-							<label class="inline">Your E-mail</label>
+							<label for="email_signup" class="inline">Your E-mail</label>
 						</div>
 						<div class="large-9 columns">
-							<input type="text" placeholder="Email address">
+							<input id="email_signup" name="email_signup" type="text" placeholder="Email address">
 						</div>
 					</div>
 					<div class="row collapse">
@@ -191,7 +191,29 @@
 
 				// validate form function
 				var validateForm = (function(){
-					console.log("Validating form...");
+					var regExpName = /^[A-Za-z0-9 ]{3,20}$/, // regular expresion for input name
+					// regular expression for input email
+					regExpEmail = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+					jName = '', // input name
+					jEmail = '', // input email
+					chkName = '', // boolean for input name matching w. regExp
+					chkEmail = ''; // boolean for input matching w. regExp 
+
+					// getting the inputs value
+					jName = document.getElementById('name_signup').value.toString();
+					jEmail = document.getElementById('email_signup').value.toString();
+
+					// match regular expressions
+					chkName = regExpName.test(jName);
+					chkEmail = regExpEmail.test(jEmail);
+
+					if (chkName && chkEmail){
+						console.log('Success. Sending data...');
+						//submitForm();
+					} else {
+						console.log('Failure. Check fields please.');
+						return false;
+					}
 				});
 
 				return{
