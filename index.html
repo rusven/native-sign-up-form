@@ -166,6 +166,24 @@
 				</form>
 			</section>
 		</div>
+		<script type="text/javascript">
+			// first declare the global object 
+			var app = app || {};
+			
+			// assign autorun function after DOM
+			app = (function(){
+				var init = (function(){
+					console.log("Testing");
+				});
+
+				return{
+					init : init
+				}
+			})();
+
+			// initialize
+			app.init();
+		</script>
 	</body>
 </html>
 
