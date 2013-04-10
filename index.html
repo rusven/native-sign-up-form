@@ -137,6 +137,26 @@
 			button:hover, button:focus, .button:hover, .button:focus {
 			    background-color: #2284A1;
 			}
+
+			.message{
+				display: none;
+				position: absolute;
+				bottom: 25px;
+				left: 165px;
+				font-size: 12px;
+				font-weight: bold;
+			}
+
+			.message.success {
+				color: #5DA423;
+				display: block;
+			}
+
+			.message.failure {
+				color: #B94A48;
+				display: block;
+			}
+			
 		</style>
     </head>
 	<body>
@@ -162,6 +182,10 @@
 					</div>
 					<div class="row collapse">
 						<button type="submit" class="radius button">Sign up</button>
+					</div>
+
+					<div id="message" class="message">
+						<span id ="message_text" class="message-text"></span>
 					</div>
 				</form>
 			</section>
@@ -197,7 +221,9 @@
 					jName = '', // input name
 					jEmail = '', // input email
 					chkName = '', // boolean for input name matching w. regExp
-					chkEmail = ''; // boolean for input matching w. regExp 
+					chkEmail = '', // boolean for input matching w. regExp 
+					jMesage = '', // message div
+					jMesageText = ''; // message text
 
 					// getting the inputs value
 					jName = document.getElementById('name_signup').value.toString();
@@ -207,11 +233,19 @@
 					chkName = regExpName.test(jName);
 					chkEmail = regExpEmail.test(jEmail);
 
+					jMesage = document.getElementById('message');
+					jMesageText = document.getElementById('message_text');
+
+					// if all ok, we can send the data
 					if (chkName && chkEmail){
-						console.log('Success. Sending data...');
+						// show success message
+						jMesage.className = 'message success';
+						jMesageText.innerHTML = 'Success. Sending data...';
 						//submitForm();
 					} else {
-						console.log('Failure. Check fields please.');
+						// show failure message
+						jMesage.className = 'message failure';
+						jMesageText.innerHTML = 'Failure. Check fields please.';
 						return false;
 					}
 				});
@@ -226,5 +260,3 @@
 		</script>
 	</body>
 </html>
-
-
