@@ -142,7 +142,7 @@
 	<body>
 		<div class="container">
 			<section role="main">
-				<form class="form-signup">
+				<form id="form_signup" class="form-signup">
 					<h1>Sign up</h1>
 					<div class="row collapse">
 						<div class="large-3 columns">
@@ -172,8 +172,26 @@
 			
 			// assign autorun function after DOM
 			app = (function(){
+				// init function
 				var init = (function(){
-					console.log("Testing");
+					// get the form and inputs for attach listeners
+					var jForm = document.getElementById('form_signup'),
+					jInputs = document.getElementsByTagName('input');
+
+					// attach with try/catch for Internet Explorer <= 8
+			        try {
+					    jForm.addEventListener("submit", function(evt){
+					    	evt.preventDefault();
+					    	validateForm();
+					    });
+					} catch(e) {
+					    jForm.attachEvent("onsubmit", validateForm); //Internet Explorer <= 8
+					}
+				});
+
+				// validate form function
+				var validateForm = (function(){
+					console.log("Validating form...");
 				});
 
 				return{
