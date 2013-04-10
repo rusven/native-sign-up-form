@@ -35,6 +35,30 @@
 			    margin: 0 auto;
 			}
 
+			.row:after {
+			    clear: both;
+			}
+
+			.row:before, .row:after {
+			    content: " ";
+			    display: table;
+			}
+
+			.row.collapse .columns {
+			    float: left;
+			    padding-left: 0;
+			    padding-right: 0;
+			    position: relative;
+			}
+
+			.row .large-3 {
+			    width: 25%;
+			}
+
+			.row .large-9 {
+			    width: 75%;
+			}
+
 			.form-signup{
 			    background-color: #FFFFFF;
 			    border: 1px solid #E5E5E5;
@@ -45,11 +69,6 @@
 			    padding: 50px 70px 50px;
 			    position: relative;
 			}
-
-			input,
-			label {
-				display: block;
-			}
 		</style>
     </head>
 	<body>
@@ -57,10 +76,22 @@
 			<section role="main">
 				<form class="form-signup">
 					<h1>Sign up</h1>
-					<label>Your Name</label>
-					<input type="text" placeholder="Name">
-					<label>Your E-mail</label>
-					<input type="text" placeholder="Email address">
+					<div class="row collapse">
+						<div class="large-3 columns">
+							<label>Your Name</label>
+						</div>
+						<div class="large-9 columns">
+							<input type="text" placeholder="Name">
+						</div>
+					</div>
+					<div class="row collapse">
+						<div class="large-3 columns">
+							<label>Your E-mail</label>
+						</div>
+						<div class="large-9 columns">
+							<input type="text" placeholder="Email address">
+						</div>
+					</div>
 					<button type="submit">Sign up</button>
 				</form>
 			</section>
